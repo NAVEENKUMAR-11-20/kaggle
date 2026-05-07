@@ -1,0 +1,12 @@
+[project]
+name = "starter-kit"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "google-genai>=1.75.0",
+    "numpy>=2.4.4",
+    "pillow>=12.2.0",
+    "python-dotenv>=1.2.2",
+    "tqdm>=4.67.3",
+]
