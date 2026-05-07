@@ -36,7 +36,7 @@ SAMPLE_SUBMISSION_PATH = Path("sample_submission.csv")
 NUM_CLASSES = 2
 CLASS_NAMES = ["chihuahua", "muffin"]
 BATCH_SIZE = 32  # Reduce if your system runs out of memory
-IMAGE_SIZE = 128
+IMAGE_SIZE = 224
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
@@ -53,13 +53,8 @@ class ResNet18Classifier(nn.Module):
         resnet_features = self.resnet.fc.in_features
         self.resnet.fc = nn.Identity()
         self.classifier = nn.Sequential(
-            nn.Linear(resnet_features, 256),
-            nn.ReLU(),
-            nn.Dropout(0.3),
-            nn.Linear(256, 128),
-            nn.ReLU(),
-            nn.Dropout(0.3),
-            nn.Linear(128, num_classes),
+            nn.Dropout(0.5),
+            nn.Linear(resnet_features, num_classes),
         )
 
     def forward(self, x):

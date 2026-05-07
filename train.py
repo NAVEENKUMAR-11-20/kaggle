@@ -35,7 +35,7 @@ import os
 # CONFIGURATION
 # ============================================================================
 
-EPOCHS = 80
+EPOCHS = 40
 BATCH_SIZE = 32
 LEARNING_RATE = 0.001
 WEIGHT_DECAY = 1e-4
